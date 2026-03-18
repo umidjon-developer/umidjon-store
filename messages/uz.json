@@ -1,14 +1,15 @@
 {
 	"hero": {
 		"greeting": "Salom, men",
-		"name": "Umidjon",
-		"title": "freelancer dasturchi",
-		"description": "Siz uchun loyiha qilaman: Telegram botlar, veb admin panellar , mobil ilovalar...",
-		"telegramBots": "Telegram botlar",
-		"adminPanels": "veb admin panellar",
-		"mobileApps": "mobil ilovalar",
-		"cta": "Loyihangiz haqida yozing",
-		"viewServices": "Xizmatlarni ko'rish"
+		"name": "Umidjon Gafforov",
+		"title": "Full Stack & Mobile Dasturchi",
+		"description": "Men React, Next.js va React Native yordamida ajoyib raqamli tajribalar yarataman. Toshkentda joylashgan, dunyo bo'ylab bizneslarga g'oyalarini hayotga o'tkazishda yordam beraman.",
+		"availableForWork": "Ish uchun mavjud",
+		"cta": "Menga ishiring",
+		"viewProjects": "Loyihalarni ko'rish",
+		"scrollDown": "Pastga aylantiring",
+		"yearsExperience": "Yillik tajriba",
+		"projects": "Loyihalar"
 	},
 	"serviceSelector": {
 		"title": "Sizga nima kerak?",
@@ -40,6 +41,13 @@
 		"title": "Qaysi yo'nalishda ishlayman",
 		"subtitle": "Zamonaviy texnologiyalar yordamida sizning biznesingiz uchun to'liq yechimlar",
 		"viewExample": "Namuna ko'rish",
+		"learnMore": "Batafsil",
+		"getStarted": "Boshlash",
+		"close": "Yopish",
+		"keyFeatures": "Asosiy xususiyatlar",
+		"timeline": "Muddat",
+		"whatsIncluded": "Nimalar kiradi",
+		"technologies": "Texnologiyalar",
 		"items": {
 			"telegramBots": {
 				"title": "Telegram Botlar",
@@ -68,90 +76,107 @@
 		}
 	},
 	"projects": {
-		"title": "Loyihalar",
-		"subtitle": "Mening yaratgan loyihalarim - har biri o'ziga xos yechim va texnologiyalar",
+		"subtitle": "Portfolio",
+		"title": "Tanlangan Loyihalar",
+		"description": "Veb, mobil va avtomatlashtirish sohalaridagi so'nggi ishlarimdan tanlanganlar",
+		"categories": {
+			"all": "Hammasi",
+			"web": "Veb",
+			"mobile": "Mobil",
+			"bots": "Botlar"
+		},
+		"viewAll": "Barcha loyihalarni GitHub da ko'rish",
 		"demo": "Demo",
-		"github": "GitHub",
-		"items": {
-			"restaurantBot": {
-				"title": "Restoran Buyurtma Boti",
-				"description": "Telegram orqali ovqat buyurtma qilish, to'lov va yetkazib berish tizimi",
-				"category": "Telegram Bot"
-			},
-			"ecommerceAdmin": {
-				"title": "E-commerce Admin Panel",
-				"description": "Onlayn do'kon boshqaruvi: mahsulotlar, buyurtmalar, mijozlar, hisobotlar",
-				"category": "Admin Panel"
-			},
-			"deliveryApp": {
-				"title": "Yetkazib Berish Ilovasi",
-				"description": "Kuryer va mijozlar uchun mobil ilova - buyurtma kuzatish, GPS",
-				"category": "Mobil Ilova"
-			},
-			"crmSystem": {
-				"title": "CRM Tizimi",
-				"description": "Mijozlar bilan ishlash, sotuv jarayoni, hisobotlar va analitika",
-				"category": "Veb Sayt"
-			},
-			"learningPlatform": {
-				"title": "Onlayn Ta'lim Platformasi",
-				"description": "Video darslar, testlar, sertifikatlar - to'liq ta'lim tizimi",
-				"category": "Veb Sayt"
-			},
-			"inventoryBot": {
-				"title": "Inventar Boshqaruv Boti",
-				"description": "Ombor va mahsulotlar hisobini yuritish uchun Telegram bot",
-				"category": "Telegram Bot"
-			}
-		}
+		"github": "GitHub"
 	},
 	"about": {
-		"title": "Men haqimda",
-		"experience": "3+ yillik tajriba",
-		"bio1": "Men 2022-yildan beri dasturlash bilan shug'ullanaman. Telegram botlar, veb-saytlar va mobil ilovalar yaratishda ixtisoslashganman. 50+ loyiha muvaffaqiyatli yakunlangan.",
-		"bio2": "Har bir loyihani boshlashdan oldin siz bilan batafsil texnik topshiriq ishlab chiqaman. Bu sizning vaqtingiz va pullaringizni tejaydi, natija esa kutganingizdan ham yaxshi bo'ladi.",
-		"workProcess": "Ishlash jarayonim:",
-		"processSteps": {
-			"analysis": "Loyiha tahlili va texnik topshiriq",
-			"design": "Dizayn va arxitektura rejalashtirish",
-			"development": "Bosqichma-bosqich ishlab chiqish",
-			"testing": "Test qilish va optimizatsiya",
-			"delivery": "Topshirish va qo'llab-quvvatlash"
+		"subtitle": "Men haqimda",
+		"title": "Raqamli A'lochilikni Yaratish",
+		"description": "Ta'sirchan raqamli yechimlar yaratishga qaratilgan ishtiyoqli dasturchi",
+		"yearsExperience": "Yillik tajriba",
+		"heading": "G'oyalarni",
+		"headingHighlight": "Kuchli Yechimlarga aylantirish",
+		"bio1": "Men Umidjon Gafforov, Toshkent, O'zbekistonda joylashgan Full Stack & Mobile dasturchiman. 3+ yillik tajribam bilan kengaytiriladigan veb ilovalar, mobil ilovalar va avtomatlashtirish yechimlarini yaratishda ixtisoslashganman.",
+		"bio2": "Tajribam React, Next.js, Vue.js, Node.js va React Native kabi texnologiyalarni qamrab oladi. Men startaplardan tortib korxonalarigacha bo'lgan bizneslarning raqamli mavjudligini o'zgartirish va operatsiyalarini soddalashtirishda yordam berdim.",
+		"stats": {
+			"years": "Yillik tajriba",
+			"projects": "Loyihalar yakunlandi",
+			"clients": "Mamnun mijozlar",
+			"satisfaction": "Mijozlar mamnuniyati"
 		},
-		"technologies": "Foydalanadigan texnologiyalar"
+		"processTitle": "Ish jarayonim",
+		"process": {
+			"discovery": {
+				"title": "Tadqiqot",
+				"description": "Sizning tasavvuringiz va talablaringizni tushunish"
+			},
+			"development": {
+				"title": "Ishlab chiqish",
+				"description": "Zamonaviy texnologiyalar bilan qurish"
+			},
+			"launch": {
+				"title": "Ishga tushirish",
+				"description": "Joylashtirish va optimallashtirish"
+			},
+			"support": {
+				"title": "Qo'llab-quvvatlash",
+				"description": "Doimiy texnik xizmat va yangilanishlar"
+			}
+		},
+		"techTitle": "Foydalanadigan texnologiyalar"
+	},
+	"testimonials": {
+		"subtitle": "Mijozlar fikrlari",
+		"title": "Mijozlar nima deydi",
+		"description": "Mening ishlashdan mamnun bo'lgan bizneslar fikrlari"
 	},
 	"contact": {
-		"title": "Bog'lanish",
-		"subtitle": "Loyihangiz haqida yozing. Bepul maslahat va taklif olasiz!",
+		"subtitle": "Bog'lanish",
+		"title": "Birga Ishlaylik",
+		"description": "Loyiha fikringiz bormi? Uni eshitishni xohlayman. Menga xabar yuboring va ajoyib narsalar yarataylik.",
 		"form": {
-			"title": "Xabar yuborish",
 			"name": "Ismingiz",
-			"email": "Email",
-			"telegram": "Telegram username (ixtiyoriy)",
-			"message": "Loyihangiz haqida",
-			"messagePlaceholder": "Qanday loyiha kerak? Qaysi funksiyalar bo'lishi kerak? Budjet qancha?",
+			"namePlaceholder": "John Doe",
+			"email": "Email manzilingiz",
+			"emailPlaceholder": "john@example.com",
+			"telegram": "Telegram foydalanuvchi nomi",
+			"optional": "Ixtiyoriy",
+			"message": "Xabaringiz",
+			"messagePlaceholder": "Loyihangiz haqida ayting...",
 			"submit": "Xabar yuborish",
-			"submitting": "Yuborilmoqda..."
+			"sending": "Yuborilmoqda..."
 		},
 		"success": {
 			"title": "Xabar yuborildi!",
-			"message": "Tez orada siz bilan bog'lanaman. Telegram orqali javob beraman.",
-			"sendAnother": "Yana xabar yuborish"
+			"message": "Murojaatingiz uchun rahmat. 24 soat ichida sizga javob beraman.",
+			"button": "Yana xabar yuborish"
 		},
-		"quickResponse": {
-			"title": "Tezkor javob",
-			"message": "Odatda 2-3 soat ichida javob beraman. Telegram orqali bog'lanish eng tez yo'l."
+		"toast": {
+			"success": "Xabar muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanaman.",
+			"error": "Xabar yuborishda xatolik yuz berdi. Iltimos, qayta urinib ko'ring."
 		},
-		"freeConsultation": {
-			"title": "Bepul maslahat",
-			"message": "Loyihangiz haqida gaplashib, eng yaxshi yechimni topamiz. Maslahat mutlaqo bepul!",
-			"services": {
-				"analysis": "Texnik tahlil",
-				"pricing": "Vaqt va narx hisoblash",
-				"technologies": "Texnologiyalar tanlash",
-				"planning": "Loyiha rejasi"
+		"cards": {
+			"available": {
+				"title": "Frilans uchun mavjud",
+				"description": "Hozirda yangi loyihalarni qabul qilmoqdaman. G'oyalaringizni hayotga o'tkazishda qanday yordam berishim mumkinligini muhokama qilaylik."
+			},
+			"response": {
+				"title": "Tezkor javob",
+				"description": "Odatda barcha so'rovlarga 24 soat ichida javob beraman. Shoshilinch holatlar uchun Telegram orqali bog'laning."
+			},
+			"location": {
+				"title": "Buxoroda joylashgan",
+				"description": "Dunyo bo'ylab mijozlar bilan ishlayman. Vaqt mintaqalariga moslashuvchanlik bilan samarali hamkorlik."
 			}
 		}
+	},
+	"navigation": {
+		"about": "Men haqimda",
+		"services": "Xizmatlar",
+		"projects": "Loyihalar",
+		"testimonials": "Fikrlar",
+		"contact": "Bog'lanish",
+		"hireMe": "Ishga oling"
 	},
 	"common": {
 		"required": "*"

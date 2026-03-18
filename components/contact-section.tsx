@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { FadeIn } from "./animations/FadeIn";
 import {
   StaggerContainer,
@@ -44,6 +45,7 @@ const contactInfo = [
 ];
 
 export function ContactSection() {
+  const t = useTranslations("contact");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -66,12 +68,12 @@ export function ContactSection() {
 
       if (response.ok) {
         setIsSubmitted(true);
-        toast.success("Message sent successfully! I'll get back to you soon.");
+        toast.success(t("toast.success"));
       } else {
-        toast.error("Failed to send message. Please try again.");
+        toast.error(t("toast.error"));
       }
     } catch (error) {
-      toast.error("An error occurred. Please try again.");
+      toast.error(t("toast.error"));
     } finally {
       setIsSubmitting(false);
     }
@@ -87,32 +89,31 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative py-24 overflow-hidden">
+    <section id="contact" className="relative py-24 overflow-hidden bg-background">
       {/* Background */}
       <div className="absolute inset-0">
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-3xl" />
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-500/5 dark:bg-purple-500/5 bg-purple-500/[0.03] rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-cyan-500/5 dark:bg-cyan-500/5 bg-cyan-500/[0.03] rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <FadeIn className="text-center mb-16">
-          <span className="text-purple-400 font-medium mb-2 block">
-            Get In Touch
+          <span className="text-purple-500 dark:text-purple-400 font-medium mb-2 block">
+            {t("subtitle")}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Let&apos;s Work Together
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+            {t("title")}
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-            Have a project in mind? I&apos;d love to hear about it. Send me a message
-            and let&apos;s create something amazing.
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            {t("description")}
           </p>
         </FadeIn>
 
         <div className="grid lg:grid-cols-5 gap-8">
           {/* Contact Form */}
           <FadeIn className="lg:col-span-3">
-            <div className="bg-slate-800/50 border border-slate-700/50 rounded-2xl p-6 sm:p-8">
+            <div className="bg-white dark:bg-slate-800/50 border border-border dark:border-slate-700/50 rounded-2xl p-6 sm:p-8 shadow-sm">
               {isSubmitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -122,29 +123,28 @@ export function ContactSection() {
                   <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
                     <CheckCircle className="w-10 h-10 text-green-500" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-2">
-                    Message Sent!
+                  <h3 className="text-2xl font-bold text-foreground mb-2">
+                    {t("success.title")}
                   </h3>
-                  <p className="text-slate-400 mb-6">
-                    Thank you for reaching out. I&apos;ll get back to you within 24
-                    hours.
+                  <p className="text-muted-foreground mb-6">
+                    {t("success.message")}
                   </p>
                   <button
                     onClick={() => {
                       setIsSubmitted(false);
                       setFormData({ name: "", email: "", telegram: "", message: "" });
                     }}
-                    className="px-6 py-3 bg-slate-700 text-white rounded-full hover:bg-slate-600 transition-colors"
+                    className="px-6 py-3 bg-secondary dark:bg-slate-700 text-foreground rounded-full hover:bg-secondary/80 dark:hover:bg-slate-600 transition-colors"
                   >
-                    Send Another Message
+                    {t("success.button")}
                   </button>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-slate-300 mb-2">
-                        Your Name
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
+                        {t("form.name")}
                       </label>
                       <input
                         type="text"
@@ -152,13 +152,13 @@ export function ContactSection() {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors"
-                        placeholder="John Doe"
+                        className="w-full px-4 py-3 bg-gray-50 dark:bg-slate-900/50 border border-border dark:border-slate-700 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors"
+                        placeholder={t("form.namePlaceholder")}
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-slate-300 mb-2">
-                        Email Address
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
+                        {t("form.email")}
                       </label>
                       <input
                         type="email"
@@ -166,30 +166,30 @@ export function ContactSection() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors"
-                        placeholder="john@example.com"
+                        className="w-full px-4 py-3 bg-gray-50 dark:bg-slate-900/50 border border-border dark:border-slate-700 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors"
+                        placeholder={t("form.emailPlaceholder")}
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-2">
-                      Telegram Username{" "}
-                      <span className="text-slate-500">(Optional)</span>
+                    <label className="block text-sm font-medium text-muted-foreground mb-2">
+                      {t("form.telegram")}{" "}
+                      <span className="text-muted-foreground/70">({t("form.optional")})</span>
                     </label>
                     <input
                       type="text"
                       name="telegram"
                       value={formData.telegram}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors"
+                      className="w-full px-4 py-3 bg-gray-50 dark:bg-slate-900/50 border border-border dark:border-slate-700 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors"
                       placeholder="@username"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-2">
-                      Your Message
+                    <label className="block text-sm font-medium text-muted-foreground mb-2">
+                      {t("form.message")}
                     </label>
                     <textarea
                       name="message"
@@ -197,8 +197,8 @@ export function ContactSection() {
                       onChange={handleChange}
                       required
                       rows={5}
-                      className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors resize-none"
-                      placeholder="Tell me about your project..."
+                      className="w-full px-4 py-3 bg-gray-50 dark:bg-slate-900/50 border border-border dark:border-slate-700 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors resize-none"
+                      placeholder={t("form.messagePlaceholder")}
                     />
                   </div>
 
@@ -212,12 +212,12 @@ export function ContactSection() {
                     {isSubmitting ? (
                       <>
                         <Loader2 className="w-5 h-5 animate-spin" />
-                        Sending...
+                        {t("form.sending")}
                       </>
                     ) : (
                       <>
                         <Send className="w-5 h-5" />
-                        Send Message
+                        {t("form.submit")}
                       </>
                     )}
                   </motion.button>
@@ -236,31 +236,29 @@ export function ContactSection() {
                     <span className="absolute inline-flex h-3 w-3 animate-ping rounded-full bg-green-400 opacity-75"></span>
                     <span className="relative inline-flex h-3 w-3 rounded-full bg-green-500"></span>
                   </div>
-                  <h3 className="text-lg font-semibold text-white">
-                    Available for Freelance
+                  <h3 className="text-lg font-semibold text-foreground">
+                    {t("cards.available.title")}
                   </h3>
                 </div>
-                <p className="text-slate-300 text-sm">
-                  I&apos;m currently accepting new projects. Let&apos;s discuss how I can
-                  help bring your ideas to life.
+                <p className="text-muted-foreground text-sm">
+                  {t("cards.available.description")}
                 </p>
               </div>
             </FadeIn>
 
             {/* Quick Response Card */}
             <FadeIn delay={0.2}>
-              <div className="bg-slate-800/50 border border-slate-700/50 rounded-2xl p-6">
+              <div className="bg-white dark:bg-slate-800/50 border border-border dark:border-slate-700/50 rounded-2xl p-6 shadow-sm">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-purple-500/20 rounded-xl flex items-center justify-center">
-                    <Clock className="w-5 h-5 text-purple-400" />
+                    <Clock className="w-5 h-5 text-purple-500 dark:text-purple-400" />
                   </div>
-                  <h3 className="text-lg font-semibold text-white">
-                    Quick Response
+                  <h3 className="text-lg font-semibold text-foreground">
+                    {t("cards.response.title")}
                   </h3>
                 </div>
-                <p className="text-slate-400 text-sm">
-                  I typically respond to all inquiries within 24 hours. For urgent
-                  matters, reach out on Telegram.
+                <p className="text-muted-foreground text-sm">
+                  {t("cards.response.description")}
                 </p>
               </div>
             </FadeIn>
@@ -273,7 +271,7 @@ export function ContactSection() {
                     href={info.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-4 bg-slate-800/50 border border-slate-700/50 rounded-xl hover:border-purple-500/50 transition-colors group"
+                    className="flex items-center gap-4 p-4 bg-white dark:bg-slate-800/50 border border-border dark:border-slate-700/50 rounded-xl hover:border-purple-500/50 transition-colors group shadow-sm"
                   >
                     <div
                       className="w-12 h-12 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110"
@@ -285,8 +283,8 @@ export function ContactSection() {
                       />
                     </div>
                     <div>
-                      <p className="text-slate-400 text-sm">{info.label}</p>
-                      <p className="text-white font-medium">{info.value}</p>
+                      <p className="text-muted-foreground text-sm">{info.label}</p>
+                      <p className="text-foreground font-medium">{info.value}</p>
                     </div>
                   </a>
                 </StaggerItem>
@@ -295,16 +293,15 @@ export function ContactSection() {
 
             {/* Location */}
             <FadeIn delay={0.4}>
-              <div className="bg-slate-800/50 border border-slate-700/50 rounded-2xl p-6">
+              <div className="bg-white dark:bg-slate-800/50 border border-border dark:border-slate-700/50 rounded-2xl p-6 shadow-sm">
                 <div className="flex items-center gap-3 mb-2">
-                  <Zap className="w-5 h-5 text-cyan-400" />
-                  <h3 className="text-lg font-semibold text-white">
-                    Based in Bukhara
+                  <Zap className="w-5 h-5 text-cyan-500 dark:text-cyan-400" />
+                  <h3 className="text-lg font-semibold text-foreground">
+                    {t("cards.location.title")}
                   </h3>
                 </div>
-                <p className="text-slate-400 text-sm">
-                  Working with clients worldwide. Flexible with time zones for
-                  smooth collaboration.
+                <p className="text-muted-foreground text-sm">
+                  {t("cards.location.description")}
                 </p>
               </div>
             </FadeIn>

@@ -16,10 +16,10 @@ export default function Home() {
 			<ContactSection />
 			
 			{/* Footer */}
-			<footer className="py-8 border-t border-slate-800">
+			<footer className="py-8 border-t border-border dark:border-slate-800 bg-background">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-						<p className="text-slate-400 text-sm">
+						<p className="text-muted-foreground text-sm">
 							© {new Date().getFullYear()} Umidjon Gafforov. All rights reserved.
 						</p>
 						<div className="flex items-center gap-6">
@@ -27,7 +27,7 @@ export default function Home() {
 								href="https://t.me/umidjon_developer" 
 								target="_blank" 
 								rel="noopener noreferrer"
-								className="text-slate-400 hover:text-purple-400 transition-colors text-sm"
+								className="text-muted-foreground hover:text-purple-500 dark:hover:text-purple-400 transition-colors text-sm"
 							>
 								Telegram
 							</a>
@@ -35,13 +35,13 @@ export default function Home() {
 								href="https://instagram.com/umidjon_developer" 
 								target="_blank" 
 								rel="noopener noreferrer"
-								className="text-slate-400 hover:text-purple-400 transition-colors text-sm"
+								className="text-muted-foreground hover:text-purple-500 dark:hover:text-purple-400 transition-colors text-sm"
 							>
 								Instagram
 							</a>
 							<a 
 								href="mailto:contact@umidjon.dev"
-								className="text-slate-400 hover:text-purple-400 transition-colors text-sm"
+								className="text-muted-foreground hover:text-purple-500 dark:hover:text-purple-400 transition-colors text-sm"
 							>
 								Email
 							</a>

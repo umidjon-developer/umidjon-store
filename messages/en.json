@@ -1,14 +1,15 @@
 {
 	"hero": {
-		"greeting": "Hello, I'm",
-		"name": "Umidjon",
-		"title": "freelance developer",
-		"description": "I create projects for you: Telegram bots, Web admin panels, mobile applications...",
-		"telegramBots": "Telegram bots",
-		"adminPanels": "web admin panels",
-		"mobileApps": "mobile applications",
-		"cta": "Tell me about your project",
-		"viewServices": "View Services"
+		"greeting": "Hi, I'm",
+		"name": "Umidjon Gafforov",
+		"title": "Full Stack & Mobile Developer",
+		"description": "I craft exceptional digital experiences with React, Next.js, and React Native. Based in Tashkent, helping businesses worldwide transform their ideas into reality.",
+		"availableForWork": "Available for work",
+		"cta": "Hire Me",
+		"viewProjects": "View Projects",
+		"scrollDown": "Scroll Down",
+		"yearsExperience": "Years Experience",
+		"projects": "Projects"
 	},
 	"serviceSelector": {
 		"title": "What do you need?",
@@ -40,6 +41,13 @@
 		"title": "What I Do",
 		"subtitle": "Complete solutions for your business using modern technologies",
 		"viewExample": "View Example",
+		"learnMore": "Learn More",
+		"getStarted": "Get Started",
+		"close": "Close",
+		"keyFeatures": "Key Features",
+		"timeline": "Timeline",
+		"whatsIncluded": "What's Included",
+		"technologies": "Technologies",
 		"items": {
 			"telegramBots": {
 				"title": "Telegram Bots",
@@ -68,90 +76,107 @@
 		}
 	},
 	"projects": {
-		"title": "Projects",
-		"subtitle": "My created projects - each with unique solutions and technologies",
+		"subtitle": "Portfolio",
+		"title": "Featured Projects",
+		"description": "A selection of my recent work across web, mobile, and automation",
+		"categories": {
+			"all": "All",
+			"web": "Web",
+			"mobile": "Mobile",
+			"bots": "Bots"
+		},
+		"viewAll": "View All Projects on GitHub",
 		"demo": "Demo",
-		"github": "GitHub",
-		"items": {
-			"restaurantBot": {
-				"title": "Restaurant Order Bot",
-				"description": "Food ordering via Telegram, payment and delivery system",
-				"category": "Telegram Bot"
-			},
-			"ecommerceAdmin": {
-				"title": "E-commerce Admin Panel",
-				"description": "Online store management: products, orders, customers, reports",
-				"category": "Admin Panel"
-			},
-			"deliveryApp": {
-				"title": "Delivery App",
-				"description": "Mobile app for couriers and customers - order tracking, GPS",
-				"category": "Mobile App"
-			},
-			"crmSystem": {
-				"title": "CRM System",
-				"description": "Customer management, sales process, reports and analytics",
-				"category": "Website"
-			},
-			"learningPlatform": {
-				"title": "Online Learning Platform",
-				"description": "Video lessons, tests, certificates - complete education system",
-				"category": "Website"
-			},
-			"inventoryBot": {
-				"title": "Inventory Management Bot",
-				"description": "Telegram bot for warehouse and product inventory tracking",
-				"category": "Telegram Bot"
-			}
-		}
+		"github": "GitHub"
 	},
 	"about": {
-		"title": "About Me",
-		"experience": "3+ years experience",
-		"bio1": "I've been programming since 2022. I specialize in creating Telegram bots, websites and mobile applications. 50+ projects successfully completed.",
-		"bio2": "Before starting each project, I develop a detailed technical specification with you. This saves your time and money, and the result is even better than expected.",
-		"workProcess": "My work process:",
-		"processSteps": {
-			"analysis": "Project analysis and technical specification",
-			"design": "Design and architecture planning",
-			"development": "Step-by-step development",
-			"testing": "Testing and optimization",
-			"delivery": "Delivery and support"
+		"subtitle": "About Me",
+		"title": "Crafting Digital Excellence",
+		"description": "Passionate developer with a focus on creating impactful digital solutions",
+		"yearsExperience": "Years of Experience",
+		"heading": "Turning Ideas Into",
+		"headingHighlight": "Powerful Solutions",
+		"bio1": "I'm Umidjon Gafforov, a Full Stack & Mobile Developer based in Tashkent, Uzbekistan. With over 3+ years of experience, I specialize in building scalable web applications, mobile apps, and automation solutions.",
+		"bio2": "My expertise spans across React, Next.js, Vue.js, Node.js, and React Native. I've helped businesses from startups to enterprises transform their digital presence and streamline their operations.",
+		"stats": {
+			"years": "Years Experience",
+			"projects": "Projects Completed",
+			"clients": "Happy Clients",
+			"satisfaction": "Client Satisfaction"
 		},
-		"technologies": "Technologies I use"
+		"processTitle": "My Work Process",
+		"process": {
+			"discovery": {
+				"title": "Discovery",
+				"description": "Understanding your vision and requirements"
+			},
+			"development": {
+				"title": "Development",
+				"description": "Building with modern technologies"
+			},
+			"launch": {
+				"title": "Launch",
+				"description": "Deploying and optimizing performance"
+			},
+			"support": {
+				"title": "Support",
+				"description": "Ongoing maintenance and updates"
+			}
+		},
+		"techTitle": "Technologies I Use"
+	},
+	"testimonials": {
+		"subtitle": "Testimonials",
+		"title": "What Clients Say",
+		"description": "Feedback from businesses I've had the pleasure of working with"
 	},
 	"contact": {
-		"title": "Contact",
-		"subtitle": "Tell me about your project. Get free consultation and proposal!",
+		"subtitle": "Get In Touch",
+		"title": "Let's Work Together",
+		"description": "Have a project in mind? I'd love to hear about it. Send me a message and let's create something amazing.",
 		"form": {
-			"title": "Send Message",
 			"name": "Your Name",
-			"email": "Email",
-			"telegram": "Telegram username (optional)",
-			"message": "About your project",
-			"messagePlaceholder": "What kind of project do you need? What features should it have? What's the budget?",
+			"namePlaceholder": "John Doe",
+			"email": "Email Address",
+			"emailPlaceholder": "john@example.com",
+			"telegram": "Telegram Username",
+			"optional": "Optional",
+			"message": "Your Message",
+			"messagePlaceholder": "Tell me about your project...",
 			"submit": "Send Message",
-			"submitting": "Sending..."
+			"sending": "Sending..."
 		},
 		"success": {
-			"title": "Message sent!",
-			"message": "I'll contact you soon. I'll respond via Telegram.",
-			"sendAnother": "Send another message"
+			"title": "Message Sent!",
+			"message": "Thank you for reaching out. I'll get back to you within 24 hours.",
+			"button": "Send Another Message"
 		},
-		"quickResponse": {
-			"title": "Quick Response",
-			"message": "I usually respond within 2-3 hours. Telegram is the fastest way to contact."
+		"toast": {
+			"success": "Message sent successfully! I'll get back to you soon.",
+			"error": "Failed to send message. Please try again."
 		},
-		"freeConsultation": {
-			"title": "Free Consultation",
-			"message": "Let's discuss your project and find the best solution. Consultation is absolutely free!",
-			"services": {
-				"analysis": "Technical analysis",
-				"pricing": "Time and cost calculation",
-				"technologies": "Technology selection",
-				"planning": "Project planning"
+		"cards": {
+			"available": {
+				"title": "Available for Freelance",
+				"description": "I'm currently accepting new projects. Let's discuss how I can help bring your ideas to life."
+			},
+			"response": {
+				"title": "Quick Response",
+				"description": "I typically respond to all inquiries within 24 hours. For urgent matters, reach out on Telegram."
+			},
+			"location": {
+				"title": "Based in Bukhara",
+				"description": "Working with clients worldwide. Flexible with time zones for smooth collaboration."
 			}
 		}
+	},
+	"navigation": {
+		"about": "About",
+		"services": "Services",
+		"projects": "Projects",
+		"testimonials": "Testimonials",
+		"contact": "Contact",
+		"hireMe": "Hire Me"
 	},
 	"common": {
 		"required": "*"

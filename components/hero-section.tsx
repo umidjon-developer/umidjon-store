@@ -3,9 +3,12 @@
 import { motion } from "framer-motion";
 import { ArrowDown, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { Typewriter } from "./animations/TextReveal";
 
 export function HeroSection() {
+  const t = useTranslations("hero");
+  
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -14,11 +17,11 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-background">
       {/* Background Gradient Orbs */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 dark:bg-purple-500/20 bg-purple-500/[0.08] rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -30,7 +33,7 @@ export function HeroSection() {
           }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/20 dark:bg-cyan-500/20 bg-cyan-500/[0.08] rounded-full blur-3xl"
           animate={{
             scale: [1.2, 1, 1.2],
             opacity: [0.3, 0.5, 0.3],
@@ -58,8 +61,8 @@ export function HeroSection() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
               </span>
-              <span className="text-green-400 text-sm font-medium">
-                Available for work
+              <span className="text-green-600 dark:text-green-400 text-sm font-medium">
+                {t("availableForWork")}
               </span>
             </motion.div>
 
@@ -68,10 +71,10 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4"
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4"
             >
-              Hi, I&apos;m{" "}
-              <span className="text-gradient">Umidjon Gafforov</span>
+              {t("greeting")}{" "}
+              <span className="text-gradient">{t("name")}</span>
             </motion.h1>
 
             {/* Role with Typewriter */}
@@ -79,10 +82,10 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-xl sm:text-2xl lg:text-3xl text-slate-300 mb-6 h-10"
+              className="text-xl sm:text-2xl lg:text-3xl text-muted-foreground mb-6 h-10"
             >
               <Typewriter
-                text="Full Stack & Mobile Developer"
+                text={t("title")}
                 delay={0.5}
                 speed={0.05}
               />
@@ -93,11 +96,9 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-slate-400 text-lg max-w-xl mx-auto lg:mx-0 mb-8"
+              className="text-muted-foreground text-lg max-w-xl mx-auto lg:mx-0 mb-8"
             >
-              I craft exceptional digital experiences with React, Next.js, and
-              React Native. Based in Tashkent, helping businesses worldwide
-              transform their ideas into reality.
+              {t("description")}
             </motion.p>
 
             {/* Tech Stack Tags */}
@@ -111,7 +112,7 @@ export function HeroSection() {
                 (tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 text-sm bg-slate-800/50 border border-slate-700 rounded-full text-slate-300"
+                    className="px-3 py-1 text-sm bg-secondary dark:bg-slate-800/50 border border-border dark:border-slate-700 rounded-full text-secondary-foreground dark:text-slate-300"
                   >
                     {tech}
                   </span>
@@ -132,16 +133,16 @@ export function HeroSection() {
                 onClick={() => scrollToSection("#contact")}
                 className="group px-8 py-4 bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-semibold rounded-full flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-purple-500/25 transition-shadow"
               >
-                Hire Me
+                {t("cta")}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection("#projects")}
-                className="px-8 py-4 bg-slate-800/50 border border-slate-700 text-white font-semibold rounded-full hover:bg-slate-800 transition-colors flex items-center justify-center gap-2"
+                className="px-8 py-4 bg-white dark:bg-slate-800/50 border border-border dark:border-slate-700 text-foreground font-semibold rounded-full hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors flex items-center justify-center gap-2 shadow-sm"
               >
-                View Projects
+                {t("viewProjects")}
               </motion.button>
             </motion.div>
           </div>
@@ -167,7 +168,7 @@ export function HeroSection() {
                 }}
                 className="relative"
               >
-                <div className="w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden border-2 border-slate-700/50 bg-slate-800">
+                <div className="w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden border-2 border-border dark:border-slate-700/50 bg-white dark:bg-slate-800 shadow-lg">
                   <Image
                     src="/image.png"
                     alt="Umidjon Gafforov"
@@ -182,15 +183,15 @@ export function HeroSection() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.8 }}
-                  className="absolute -left-4 top-1/4 px-4 py-2 bg-slate-800/90 backdrop-blur-sm border border-slate-700 rounded-xl shadow-xl"
+                  className="absolute -left-4 top-1/4 px-4 py-2 bg-white dark:bg-slate-800/90 backdrop-blur-sm border border-border dark:border-slate-700 rounded-xl shadow-xl"
                 >
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center">
-                      <span className="text-purple-400 text-lg">⚡</span>
+                      <span className="text-purple-500 dark:text-purple-400 text-lg">⚡</span>
                     </div>
                     <div>
-                      <p className="text-white font-semibold text-sm">3+ Years</p>
-                      <p className="text-slate-400 text-xs">Experience</p>
+                      <p className="text-foreground font-semibold text-sm">3+ {t("yearsExperience")}</p>
+                      <p className="text-muted-foreground text-xs">{t("yearsExperience")}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -199,15 +200,15 @@ export function HeroSection() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1 }}
-                  className="absolute -right-4 bottom-1/4 px-4 py-2 bg-slate-800/90 backdrop-blur-sm border border-slate-700 rounded-xl shadow-xl"
+                  className="absolute -right-4 bottom-1/4 px-4 py-2 bg-white dark:bg-slate-800/90 backdrop-blur-sm border border-border dark:border-slate-700 rounded-xl shadow-xl"
                 >
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center">
-                      <span className="text-cyan-400 text-lg">🚀</span>
+                      <span className="text-cyan-500 dark:text-cyan-400 text-lg">🚀</span>
                     </div>
                     <div>
-                      <p className="text-white font-semibold text-sm">50+</p>
-                      <p className="text-slate-400 text-xs">Projects</p>
+                      <p className="text-foreground font-semibold text-sm">50+</p>
+                      <p className="text-muted-foreground text-xs">{t("projects")}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -227,9 +228,9 @@ export function HeroSection() {
             onClick={() => scrollToSection("#about")}
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="flex flex-col items-center gap-2 text-slate-400 hover:text-white transition-colors"
+            className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
           >
-            <span className="text-sm">Scroll Down</span>
+            <span className="text-sm">{t("scrollDown")}</span>
             <ArrowDown className="w-5 h-5" />
           </motion.button>
         </motion.div>

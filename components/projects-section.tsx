@@ -3,14 +3,13 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { FadeIn } from "./animations/FadeIn";
 import {
   StaggerContainer,
   StaggerItem,
 } from "./animations/StaggerContainer";
 import { ExternalLink, Github } from "lucide-react";
-
-const categories = ["All", "Web", "Mobile", "Bots"];
 
 const projects = [
   {
@@ -82,31 +81,39 @@ const projects = [
 ];
 
 export function ProjectsSection() {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const t = useTranslations("projects");
+  const [activeCategory, setActiveCategory] = useState("all");
+
+  const categories = [
+    { key: "all", label: t("categories.all") },
+    { key: "Web", label: t("categories.web") },
+    { key: "Mobile", label: t("categories.mobile") },
+    { key: "Bots", label: t("categories.bots") },
+  ];
 
   const filteredProjects =
-    activeCategory === "All"
+    activeCategory === "all"
       ? projects
       : projects.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="projects" className="relative py-24 overflow-hidden">
+    <section id="projects" className="relative py-24 overflow-hidden bg-background">
       {/* Background */}
       <div className="absolute inset-0">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-purple-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-purple-500/5 dark:bg-purple-500/5 bg-purple-500/[0.03] rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <FadeIn className="text-center mb-12">
-          <span className="text-purple-400 font-medium mb-2 block">
-            Portfolio
+          <span className="text-purple-500 dark:text-purple-400 font-medium mb-2 block">
+            {t("subtitle")}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Featured Projects
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+            {t("title")}
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-            A selection of my recent work across web, mobile, and automation
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            {t("description")}
           </p>
         </FadeIn>
 
@@ -114,22 +121,22 @@ export function ProjectsSection() {
         <FadeIn delay={0.1} className="flex justify-center gap-2 mb-12">
           {categories.map((category) => (
             <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
+              key={category.key}
+              onClick={() => setActiveCategory(category.key)}
               className={`relative px-6 py-2 rounded-full text-sm font-medium transition-colors ${
-                activeCategory === category
+                activeCategory === category.key
                   ? "text-white"
-                  : "text-slate-400 hover:text-white"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              {activeCategory === category && (
+              {activeCategory === category.key && (
                 <motion.div
                   layoutId="activeCategory"
                   className="absolute inset-0 bg-purple-500 rounded-full"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
-              <span className="relative z-10">{category}</span>
+              <span className="relative z-10">{category.label}</span>
             </button>
           ))}
         </FadeIn>
@@ -148,7 +155,7 @@ export function ProjectsSection() {
               >
                 <motion.div
                   whileHover={{ y: -8 }}
-                  className="group relative bg-slate-800/50 border border-slate-700/50 rounded-2xl overflow-hidden"
+                  className="group relative bg-white dark:bg-slate-800/50 border border-border dark:border-slate-700/50 rounded-2xl overflow-hidden shadow-sm"
                 >
                   {/* Image */}
                   <div className="relative h-48 overflow-hidden">
@@ -159,7 +166,7 @@ export function ProjectsSection() {
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background dark:from-slate-900 via-background/50 dark:via-slate-900/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
 
                     {/* Category Badge */}
                     <div className="absolute top-4 left-4">
@@ -174,7 +181,7 @@ export function ProjectsSection() {
                         href={project.liveUrl}
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
-                        className="p-3 bg-white text-slate-900 rounded-full hover:bg-purple-500 hover:text-white transition-colors"
+                        className="p-3 bg-white text-foreground rounded-full hover:bg-purple-500 hover:text-white transition-colors"
                       >
                         <ExternalLink className="w-5 h-5" />
                       </motion.a>
@@ -182,7 +189,7 @@ export function ProjectsSection() {
                         href={project.githubUrl}
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
-                        className="p-3 bg-white text-slate-900 rounded-full hover:bg-purple-500 hover:text-white transition-colors"
+                        className="p-3 bg-white text-foreground rounded-full hover:bg-purple-500 hover:text-white transition-colors"
                       >
                         <Github className="w-5 h-5" />
                       </motion.a>
@@ -191,10 +198,10 @@ export function ProjectsSection() {
 
                   {/* Content */}
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">
+                    <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-purple-500 dark:group-hover:text-purple-400 transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-slate-400 text-sm mb-4 line-clamp-2">
+                    <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
                       {project.description}
                     </p>
 
@@ -203,7 +210,7 @@ export function ProjectsSection() {
                       {project.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="px-2 py-1 text-xs bg-slate-700/50 text-slate-300 rounded"
+                          className="px-2 py-1 text-xs bg-secondary dark:bg-slate-700/50 text-secondary-foreground dark:text-slate-300 rounded"
                         >
                           {tech}
                         </span>
@@ -224,9 +231,9 @@ export function ProjectsSection() {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 px-8 py-4 border border-slate-700 text-white font-semibold rounded-full hover:bg-slate-800 transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-4 border border-border dark:border-slate-700 text-foreground font-semibold rounded-full hover:bg-secondary dark:hover:bg-slate-800 transition-colors"
           >
-            View All Projects on GitHub
+            {t("viewAll")}
             <ExternalLink className="w-5 h-5" />
           </motion.a>
         </FadeIn>

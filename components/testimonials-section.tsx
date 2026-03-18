@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { FadeIn } from "./animations/FadeIn";
 import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
 
@@ -88,25 +89,26 @@ export function TestimonialsSection() {
   }, []);
 
   const currentTestimonial = testimonials[currentIndex];
+  const t = useTranslations("testimonials");
 
   return (
-    <section id="testimonials" className="relative py-24 overflow-hidden">
+    <section id="testimonials" className="relative py-24 overflow-hidden bg-background">
       {/* Background */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-purple-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-purple-500/5 dark:bg-purple-500/5 bg-purple-500/[0.03] rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <FadeIn className="text-center mb-16">
-          <span className="text-purple-400 font-medium mb-2 block">
-            Testimonials
+          <span className="text-purple-500 dark:text-purple-400 font-medium mb-2 block">
+            {t("subtitle")}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-            What Clients Say
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+            {t("title")}
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-            Feedback from businesses I&apos;ve had the pleasure of working with
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            {t("description")}
           </p>
         </FadeIn>
 
@@ -118,7 +120,7 @@ export function TestimonialsSection() {
           </div>
 
           {/* Card */}
-          <div className="relative bg-slate-800/50 border border-slate-700/50 rounded-3xl p-8 sm:p-12 min-h-[400px] flex items-center">
+          <div className="relative bg-white dark:bg-slate-800/50 border border-border dark:border-slate-700/50 rounded-3xl p-8 sm:p-12 min-h-[400px] flex items-center shadow-sm">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
                 key={currentIndex}
@@ -148,7 +150,7 @@ export function TestimonialsSection() {
                 </div>
 
                 {/* Content */}
-                <p className="text-xl sm:text-2xl text-white text-center mb-8 leading-relaxed">
+                <p className="text-xl sm:text-2xl text-foreground text-center mb-8 leading-relaxed">
                   &ldquo;{currentTestimonial.content}&rdquo;
                 </p>
 
@@ -157,13 +159,13 @@ export function TestimonialsSection() {
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center text-white text-xl font-bold mb-4">
                     {currentTestimonial.avatar}
                   </div>
-                  <h4 className="text-lg font-semibold text-white">
+                  <h4 className="text-lg font-semibold text-foreground">
                     {currentTestimonial.name}
                   </h4>
-                  <p className="text-slate-400 text-sm">
+                  <p className="text-muted-foreground text-sm">
                     {currentTestimonial.role}
                   </p>
-                  <span className="mt-2 px-3 py-1 bg-purple-500/10 text-purple-400 text-xs rounded-full">
+                  <span className="mt-2 px-3 py-1 bg-purple-500/10 text-purple-500 dark:text-purple-400 text-xs rounded-full">
                     {currentTestimonial.project}
                   </span>
                 </div>
@@ -173,13 +175,13 @@ export function TestimonialsSection() {
             {/* Navigation Buttons */}
             <button
               onClick={() => paginate(-1)}
-              className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-slate-700/50 hover:bg-slate-700 text-white rounded-full transition-colors"
+              className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-secondary dark:bg-slate-700/50 hover:bg-secondary/80 dark:hover:bg-slate-700 text-foreground rounded-full transition-colors"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
             <button
               onClick={() => paginate(1)}
-              className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-slate-700/50 hover:bg-slate-700 text-white rounded-full transition-colors"
+              className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-secondary dark:bg-slate-700/50 hover:bg-secondary/80 dark:hover:bg-slate-700 text-foreground rounded-full transition-colors"
             >
               <ChevronRight className="w-6 h-6" />
             </button>
@@ -197,7 +199,7 @@ export function TestimonialsSection() {
                 className={`w-2 h-2 rounded-full transition-all ${
                   index === currentIndex
                     ? "w-8 bg-purple-500"
-                    : "bg-slate-600 hover:bg-slate-500"
+                    : "bg-muted-foreground/30 dark:bg-slate-600 hover:bg-muted-foreground/50 dark:hover:bg-slate-500"
                 }`}
               />
             ))}
