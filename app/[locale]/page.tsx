@@ -3,31 +3,52 @@ import { ServicesSection } from '@/components/services-section'
 import { ProjectsSection } from '@/components/projects-section'
 import { AboutSection } from '@/components/about-section'
 import { ContactSection } from '@/components/contact-section'
-import { ServiceSelector } from '@/components/service-selector'
-import { LanguageSwitcher } from '@/components/language-switcher'
-import LogoComponents from '@/components/logo-components'
-import { ModeToggle } from '@/components/add-mode-toggle'
+import { TestimonialsSection } from '@/components/testimonials-section'
 
 export default function Home() {
 	return (
-		<main className='min-h-screen '>
-			<div className='flex flex-col items-center '>
-				<div className='fixed z-50 w-full container backdrop-blur-md border rounded-xl shadow-md'>
-					<div className='flex justify-between items-center w-full p-5 '>
-						<LogoComponents />
-						<div className='flex items-center gap-4 '>
-							<ModeToggle />
-							<LanguageSwitcher />
+		<div className='min-h-screen'>
+			<HeroSection />
+			<AboutSection />
+			<ServicesSection />
+			<ProjectsSection />
+			<TestimonialsSection />
+			<ContactSection />
+			
+			{/* Footer */}
+			<footer className="py-8 border-t border-slate-800">
+				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+					<div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+						<p className="text-slate-400 text-sm">
+							© {new Date().getFullYear()} Umidjon Gafforov. All rights reserved.
+						</p>
+						<div className="flex items-center gap-6">
+							<a 
+								href="https://t.me/umidjon_developer" 
+								target="_blank" 
+								rel="noopener noreferrer"
+								className="text-slate-400 hover:text-purple-400 transition-colors text-sm"
+							>
+								Telegram
+							</a>
+							<a 
+								href="https://instagram.com/umidjon_developer" 
+								target="_blank" 
+								rel="noopener noreferrer"
+								className="text-slate-400 hover:text-purple-400 transition-colors text-sm"
+							>
+								Instagram
+							</a>
+							<a 
+								href="mailto:contact@umidjon.dev"
+								className="text-slate-400 hover:text-purple-400 transition-colors text-sm"
+							>
+								Email
+							</a>
 						</div>
 					</div>
 				</div>
-			</div>
-			<HeroSection />
-			<ServiceSelector />
-			<ServicesSection />
-			<ProjectsSection />
-			<AboutSection />
-			<ContactSection />
-		</main>
+			</footer>
+		</div>
 	)
 }
