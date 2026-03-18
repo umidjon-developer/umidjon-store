@@ -37,8 +37,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "contact@umidjon.dev",
-    href: "mailto:contact@umidjon.dev",
+    value: "umidjongafforov175@gmail.com",
+    href: "mailto:umidjongafforov175@gmail.com",
     color: "#6C63FF",
   },
 ];
@@ -299,7 +299,7 @@ export function ContactSection() {
                 <div className="flex items-center gap-3 mb-2">
                   <Zap className="w-5 h-5 text-cyan-400" />
                   <h3 className="text-lg font-semibold text-white">
-                    Based in Tashkent
+                    Based in Bukhara
                   </h3>
                 </div>
                 <p className="text-slate-400 text-sm">
